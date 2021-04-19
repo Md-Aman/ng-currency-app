@@ -11,31 +11,14 @@ import { ConvertPipe } from './../shared/pipes/convert.pipe'
 })
 export class ConversionComponent implements OnInit {
   @Input() currencyVal;
-  //  @Input() currencyCode: string;
-  //  @Input() finacialValue: number;
-  // currentVal: number;
-  // buttons: Array<string>;
-  // unit: string;
-  // currencyVal: Object;
-  // rateList: any;
-  constructor(private store: Store, private converterpipe: ConvertPipe) {
-    // this.rateList = this.store.selectSnapshot(UserState.rateList);
-    // this.currentVal = 1;
-    // this.unit = 'USD';
-    // this.buttons = Object.keys(this.rateList);
-    // this.currencyVal = {};
-    console.warn("1 curren vale :", this.currencyVal);
+
+  constructor() {
   }
 
   ngOnInit() {
-    console.warn("2 curren vale :", this.currencyVal);
-    // this.convert(this.finacialValue, this.currencyCode);
+
   }
 
-  // convert(val, unit) {
-  //   this.currencyVal = this.converterpipe.transform(val, unit);
-  //   console.warn("curren vale :", this.currencyVal);
-  // }
 
 
 
