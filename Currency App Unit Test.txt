@@ -1,0 +1,15 @@
+Convertion Page
+Positve Test : 1. Select any Currency to Convert From and Enter Financial Value (1-9 only)
+Negatve Test:  1. Enter invalid Financial Value (letter or combination of letter and number), error message will appear "Please Enter Valid Financial Amount"
+               2. Enter Valid Financial Value, Error message will appear "Currency to Convert From is required"
+
+
+Login Page:
+Positve Test : 1. Enter valid email address (abcde@gmail.com) and password, click on login, will be able to login
+Negatve Test:  1. Enter invalid email address,  Error message will appear "Email must be a valid email address"
+               2. Click on Login button, Error message will appear "Password is required"
+
+
+Settings page:
+Positive Test: 1. After login, try to access "http://localhost:4200/settings", will be able to access
+               2. After logout or without login, try to access "http://localhost:4200/settings", will navigate to login page
