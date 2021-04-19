@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row pt-3">
+        <h3 class="text-center">Select your prefer currency up to 10</h3>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mx-auto text-center">
+            <form [formGroup]="currencyForm">
+                <div class="px-2 pt-3">
+                    <div class="row">
+                        <div class="col form-group">
+                            <select class="form-control" placeholder="Currency" formControlName="currency"
+                                (change)="onSelectedCurrency()">
+                                <option *ngFor="let item of (filteredCurrencyList$ | async)" value='{{item.code}}'>
+                                    {{item.descp}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <h3 class="text-center pt-3">Prefer Currencies:</h3>
+            <ul class="text-left">
+                <li *ngFor="let item of (preferCurrencies$ | async); let index = index">
+                    {{item.descp}}
+                    <button type="button" (click)="deletePreferCurrency(index)" class="btn"><span class="glyphicon glyphicon-remove"></span> X
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

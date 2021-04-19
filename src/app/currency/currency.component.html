@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 mx-auto form p-1 header">
+            <form [formGroup]="currencyForm">
+                <div class="px-2 pt-3">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Select Currency to Convert From</label>
+                            <select class="form-control" formControlName="from_currency" placeholder="Currency"
+                                [ngClass]="{ 'is-invalid': isSelectedFromCurrency && f.from_currency.errors }">
+                                <option *ngFor="let item of (currencyList$ | async)" value="{{item.code}}">
+                                    {{item.descp}}</option>
+                            </select>
+                            <div *ngIf="isSelectedFromCurrency && f.from_currency.errors" class="invalid-feedback">
+                                <div *ngIf="f.from_currency.errors.required">Currency to Convert From is required</div>
+
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label>Enter Financial Amount</label>
+                            <input type="text" class="form-control" formControlName="financial_amount"
+                                [ngClass]="{ 'is-invalid': isAmountValid && f.financial_amount.errors }">
+                            <div *ngIf="isAmountValid && f.financial_amount.errors" class="invalid-feedback">
+                                <div *ngIf="f.financial_amount.errors.required">Financial Amount is required</div>
+                                <div *ngIf="f.financial_amount.errors.pattern">Please Enter Valid Financial Amount</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <container *ngIf="!(preferCurrencies$ | async)">
+                <div class="text-center pt-4">
+                    <p>You haven't selected any prefer currency. Please click <a
+                        routerLink="settings">here</a> to select your prefer currency. 
+                    </p>
+                </div>
+            </container>
+        </div>
+    </div>
+</div>
+
+
+<container *ngIf="(preferCurrencies$ | async)">
+    <conversion [currencyVal]="currencyVal"></conversion>
+</container>

@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row ">
+        <h1 class="text-center">Currency App</h1>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mx-auto  form p-1 text-center">
+            <ng-container *ngIf="isLoggedIn">
+                <button type="button" class="btn btn-success" (click)="logOut()">Logout</button>
+            </ng-container>
+            &nbsp;
+            <button type="button" class="btn btn-secondary" routerLink="settings">Settings</button>
+            &nbsp;
+            <button type="button" class="btn btn-secondary" routerLink="">Covert Currency</button>
+        </div>
+    </div>
+</div>

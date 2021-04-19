@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto  form p-1 header">
+            <form [formGroup]="loginForm" (ngSubmit)="logIn(loginForm.value)">
+                <div class="px-2 pt-3">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" placeholder="Email"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col text-center pt-3">
+                    <button class="btn btn-warning">Log In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
